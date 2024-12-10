@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { ArrowRight, Sparkles, Lightbulb, Rocket, RefreshCw, Plus, Minus, ChevronRight, Layout, Cpu, Palette, X } from 'lucide-react';
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment } from 'react';
+import NikeLoadingScreen from './NikeLoadingScreen';
 
 
 const LandingPage = () => {
@@ -331,155 +332,158 @@ const LandingPage = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-white">
-            {/* Hero Section */}
-            <header className="relative h-screen flex items-center overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50 z-10" />
-                <img
-                    src="https://media.self.com/photos/62fd04b9a6c785d7e45ca612/16:9/w_1160%2Cc_limit/Review-Nike-Air-Zoom-Alphalfy-NEXT-2%2525.png"
-                    alt="Nike Innovation"
-                    className="absolute w-full h-full object-cover"
-                />
-                <div className={`container mx-auto px-6 relative z-20 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-                    <h1 className="text-6xl md:text-8xl font-bold text-white mb-6">
-                        NIKE AIR ZOOM
-                        <br />
-                        ALPHAFLY NEXT%
-                    </h1>
-                    <p className="text-xl text-gray-200 mb-8 max-w-xl">
-                        Đề xuất ý tưởng cải tiến cho phiên bản thiết kế sản phẩm kế nhiệm và tương lai của Nike Air Zoom Alphafly Next%
-                    </p>
-                    <button onClick={handleExploreClick}
-                        className="group bg-white text-black px-8 py-4 rounded-full font-semibold hover:bg-blue-600 hover:text-white transition-all duration-300 flex items-center gap-2">
-                        Khám phá những ý tưởng mới
-                        <ArrowRight className="w-5 h-5 transform transition-transform duration-300 group-hover:translate-x-1" />
-                    </button>
-                </div>
-            </header>
+        <>
+            <NikeLoadingScreen />
+            <div className="min-h-screen bg-white">
+                {/* Hero Section */}
+                <header className="relative h-screen flex items-center overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50 z-10" />
+                    <img
+                        src="https://media.self.com/photos/62fd04b9a6c785d7e45ca612/16:9/w_1160%2Cc_limit/Review-Nike-Air-Zoom-Alphalfy-NEXT-2%2525.png"
+                        alt="Nike Innovation"
+                        className="absolute w-full h-full object-cover"
+                    />
+                    <div className={`container mx-auto px-6 relative z-20 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+                        <h1 className="text-6xl md:text-8xl font-bold text-white mb-6">
+                            NIKE AIR ZOOM
+                            <br />
+                            ALPHAFLY NEXT%
+                        </h1>
+                        <p className="text-xl text-gray-200 mb-8 max-w-xl">
+                            Đề xuất ý tưởng cải tiến cho phiên bản thiết kế sản phẩm kế nhiệm và tương lai của Nike Air Zoom Alphafly Next%
+                        </p>
+                        <button onClick={handleExploreClick}
+                            className="group bg-white text-black px-8 py-4 rounded-full font-semibold hover:bg-blue-600 hover:text-white transition-all duration-300 flex items-center gap-2">
+                            Khám phá những ý tưởng mới
+                            <ArrowRight className="w-5 h-5 transform transition-transform duration-300 group-hover:translate-x-1" />
+                        </button>
+                    </div>
+                </header>
 
-            {/* Innovation Ideas Section */}
-            <section className="py-20" ref={improvementSectionRef}>
-                <div className="container mx-auto px-6 ">
-                    <FadeInSection>
-                        <div className="flex md:flex-row flex-col items-center justify-between mb-12 gap-y-5">
-                            <h2 className="text-4xl font-bold flex  items-center gap-4 ">
-                                Đề xuất cải tiến
-                                <Lightbulb className="w-8 h-8 text-yellow-500" />
-                            </h2>
-                            <div className="flex gap-4">
-                                <button
-                                    onClick={() => setActiveTab('current')}
-                                    className={`px-6 py-2 rounded-full md:text-lg text-[10px] ${activeTab === 'current' ? 'bg-blue-600 text-white' : 'bg-gray-100'}`}
-                                >
-                                    Phiên bản kế nhiệm
-                                </button>
-                                <button
-                                    onClick={() => setActiveTab('future')}
-                                    className={`px-6 py-2 rounded-full md:text-lg text-[10px] ${activeTab === 'future' ? 'bg-blue-600 text-white' : 'bg-gray-100'}`}
-                                >
-                                    Tầm nhìn tương lai
-                                </button>
+                {/* Innovation Ideas Section */}
+                <section className="py-20" ref={improvementSectionRef}>
+                    <div className="container mx-auto px-6 ">
+                        <FadeInSection>
+                            <div className="flex md:flex-row flex-col items-center justify-between mb-12 gap-y-5">
+                                <h2 className="text-4xl font-bold flex  items-center gap-4 ">
+                                    Đề xuất cải tiến
+                                    <Lightbulb className="w-8 h-8 text-yellow-500" />
+                                </h2>
+                                <div className="flex gap-4">
+                                    <button
+                                        onClick={() => setActiveTab('current')}
+                                        className={`px-6 py-2 rounded-full md:text-lg text-[10px] ${activeTab === 'current' ? 'bg-blue-600 text-white' : 'bg-gray-100'}`}
+                                    >
+                                        Phiên bản kế nhiệm
+                                    </button>
+                                    <button
+                                        onClick={() => setActiveTab('future')}
+                                        className={`px-6 py-2 rounded-full md:text-lg text-[10px] ${activeTab === 'future' ? 'bg-blue-600 text-white' : 'bg-gray-100'}`}
+                                    >
+                                        Tầm nhìn tương lai
+                                    </button>
+                                </div>
                             </div>
+                        </FadeInSection>
+
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            {(activeTab === 'current' ? currentIdeas : futureIdeas).map((idea, index) => (
+                                <FadeInSection key={index}>
+                                    <IdeaCard {...idea} idea={idea} />
+                                </FadeInSection>
+                            ))}
                         </div>
-                    </FadeInSection>
+                    </div>
+                </section>
+                <IdeaDialog
+                    idea={selectedIdea}
+                    onClose={() => setSelectedIdea(null)}
+                />
+                {/* SCAMPER Analysis Section */}
+                <section className="py-20 bg-gray-50">
+                    <div className="container mx-auto px-6">
+                        <FadeInSection>
+                            <h2 className="text-4xl font-bold mb-12 flex items-center gap-4">
+                                Phân tích SCAMPER cho {activeTab === 'current' ? 'phiên bản kế nhiệm' : 'tương lai'}
+                                <RefreshCw className="w-8 h-8 text-blue-600" />
+                            </h2>
+                            <p className="text-gray-600 mb-8 max-w-3xl">
+                                Phương pháp SCAMPER được sử dụng để phát triển ý tưởng cải tiến sản phẩm một cách có hệ thống
+                            </p>
+                        </FadeInSection>
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            {scamperMethods.map((method, index) => (
+                                <FadeInSection key={index}>
+                                    <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                                        <div className="flex items-center gap-4 mb-4">
+                                            {method.icon}
+                                            <h3 className="text-xl font-bold">{method.title}</h3>
+                                        </div>
+                                        <p className="text-gray-600">{method.description}</p>
+                                        <div className="mt-6 p-4 bg-gray-50 rounded-lg">
+                                            <h4 className="font-medium mb-2">Ứng dụng:</h4>
+                                            <ul className="text-sm text-gray-600 space-y-2">
+                                                {activeTab === 'current' ?
+                                                    currentIdeas
+                                                        .filter(idea => idea.scamper.includes(method.title))
+                                                        .map((idea, i) => (
+                                                            <li key={i} className="flex items-center gap-2">
+                                                                <ChevronRight className="w-4 h-4 text-blue-600" />
+                                                                {idea.description}
+                                                            </li>
+                                                        ))
+                                                    :
+                                                    futureIdeas
+                                                        .filter(idea => idea.scamper.includes(method.title))
+                                                        .map((idea, i) => (
+                                                            <li key={i} className="flex items-center gap-2">
+                                                                <ChevronRight className="w-4 h-4 text-blue-600" />
+                                                                {idea.description}
+                                                            </li>
+                                                        ))
+                                                }
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </FadeInSection>
+                            ))}
+                        </div>
+                    </div>
+                </section>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {(activeTab === 'current' ? currentIdeas : futureIdeas).map((idea, index) => (
-                            <FadeInSection key={index}>
-                                <IdeaCard {...idea} idea={idea} />
-                            </FadeInSection>
-                        ))}
-                    </div>
-                </div>
-            </section>
-            <IdeaDialog
-                idea={selectedIdea}
-                onClose={() => setSelectedIdea(null)}
-            />
-            {/* SCAMPER Analysis Section */}
-            <section className="py-20 bg-gray-50">
-                <div className="container mx-auto px-6">
-                    <FadeInSection>
-                        <h2 className="text-4xl font-bold mb-12 flex items-center gap-4">
-                            Phân tích SCAMPER cho {activeTab === 'current' ? 'phiên bản kế nhiệm' : 'tương lai'}
-                            <RefreshCw className="w-8 h-8 text-blue-600" />
-                        </h2>
-                        <p className="text-gray-600 mb-8 max-w-3xl">
-                            Phương pháp SCAMPER được sử dụng để phát triển ý tưởng cải tiến sản phẩm một cách có hệ thống
-                        </p>
-                    </FadeInSection>
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {scamperMethods.map((method, index) => (
-                            <FadeInSection key={index}>
-                                <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                                    <div className="flex items-center gap-4 mb-4">
-                                        {method.icon}
-                                        <h3 className="text-xl font-bold">{method.title}</h3>
+                {/* Moodboard Section */}
+                <section className="py-20 bg-black">
+                    <div className="container mx-auto px-6">
+                        <FadeInSection>
+                            <h2 className="text-4xl font-bold mb-6 text-white flex items-center gap-4">
+                                Moodboard ý tưởng
+                                <Palette className="w-8 h-8 text-blue-400" />
+                            </h2>
+                            <p className="text-gray-400 mb-12 max-w-2xl">
+                                Bảng mood thể hiện các ý tưởng về màu sắc, chất liệu, công nghệ và phong cách thiết kế cho sản phẩm
+                            </p>
+                        </FadeInSection>
+                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                            {moodboardCategories.map((category, index) => (
+                                <FadeInSection key={index}>
+                                    <div className="group relative aspect-square bg-gray-800 rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300">
+                                        <img
+                                            src={`/api/placeholder/300/300`}
+                                            alt={category.title}
+                                            className="w-full h-full object-cover opacity-75 group-hover:opacity-50 transition-opacity duration-300"
+                                        />
+                                        <div className="absolute inset-0 flex flex-col justify-end p-4 bg-gradient-to-t from-black/80 to-transparent">
+                                            <h3 className="text-lg font-bold text-white mb-1">{category.title}</h3>
+                                            <p className="text-sm text-gray-300">{category.description}</p>
+                                        </div>
                                     </div>
-                                    <p className="text-gray-600">{method.description}</p>
-                                    <div className="mt-6 p-4 bg-gray-50 rounded-lg">
-                                        <h4 className="font-medium mb-2">Ứng dụng:</h4>
-                                        <ul className="text-sm text-gray-600 space-y-2">
-                                            {activeTab === 'current' ?
-                                                currentIdeas
-                                                    .filter(idea => idea.scamper.includes(method.title))
-                                                    .map((idea, i) => (
-                                                        <li key={i} className="flex items-center gap-2">
-                                                            <ChevronRight className="w-4 h-4 text-blue-600" />
-                                                            {idea.description}
-                                                        </li>
-                                                    ))
-                                                :
-                                                futureIdeas
-                                                    .filter(idea => idea.scamper.includes(method.title))
-                                                    .map((idea, i) => (
-                                                        <li key={i} className="flex items-center gap-2">
-                                                            <ChevronRight className="w-4 h-4 text-blue-600" />
-                                                            {idea.description}
-                                                        </li>
-                                                    ))
-                                            }
-                                        </ul>
-                                    </div>
-                                </div>
-                            </FadeInSection>
-                        ))}
+                                </FadeInSection>
+                            ))}
+                        </div>
                     </div>
-                </div>
-            </section>
-
-            {/* Moodboard Section */}
-            <section className="py-20 bg-black">
-                <div className="container mx-auto px-6">
-                    <FadeInSection>
-                        <h2 className="text-4xl font-bold mb-6 text-white flex items-center gap-4">
-                            Moodboard ý tưởng
-                            <Palette className="w-8 h-8 text-blue-400" />
-                        </h2>
-                        <p className="text-gray-400 mb-12 max-w-2xl">
-                            Bảng mood thể hiện các ý tưởng về màu sắc, chất liệu, công nghệ và phong cách thiết kế cho sản phẩm
-                        </p>
-                    </FadeInSection>
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                        {moodboardCategories.map((category, index) => (
-                            <FadeInSection key={index}>
-                                <div className="group relative aspect-square bg-gray-800 rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300">
-                                    <img
-                                        src={`/api/placeholder/300/300`}
-                                        alt={category.title}
-                                        className="w-full h-full object-cover opacity-75 group-hover:opacity-50 transition-opacity duration-300"
-                                    />
-                                    <div className="absolute inset-0 flex flex-col justify-end p-4 bg-gradient-to-t from-black/80 to-transparent">
-                                        <h3 className="text-lg font-bold text-white mb-1">{category.title}</h3>
-                                        <p className="text-sm text-gray-300">{category.description}</p>
-                                    </div>
-                                </div>
-                            </FadeInSection>
-                        ))}
-                    </div>
-                </div>
-            </section>
-        </div>
+                </section>
+            </div>
+        </>
     );
 };
 
