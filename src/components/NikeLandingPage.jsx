@@ -3,6 +3,9 @@ import { ArrowRight, Sparkles, Lightbulb, Rocket, RefreshCw, Plus, Minus, Chevro
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment } from 'react';
 import NikeLoadingScreen from './NikeLoadingScreen';
+// import { MoodboardSection } from './MoodboardSection';
+import MindMap from './MindMap';
+import MoodboardSection from './CanvaMoodboard';
 
 
 const LandingPage = () => {
@@ -452,36 +455,7 @@ const LandingPage = () => {
                 </section>
 
                 {/* Moodboard Section */}
-                <section className="py-20 bg-black">
-                    <div className="container mx-auto px-6">
-                        <FadeInSection>
-                            <h2 className="text-4xl font-bold mb-6 text-white flex items-center gap-4">
-                                Moodboard ý tưởng
-                                <Palette className="w-8 h-8 text-blue-400" />
-                            </h2>
-                            <p className="text-gray-400 mb-12 max-w-2xl">
-                                Bảng mood thể hiện các ý tưởng về màu sắc, chất liệu, công nghệ và phong cách thiết kế cho sản phẩm
-                            </p>
-                        </FadeInSection>
-                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                            {moodboardCategories.map((category, index) => (
-                                <FadeInSection key={index}>
-                                    <div className="group relative aspect-square bg-gray-800 rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300">
-                                        <img
-                                            src={`/api/placeholder/300/300`}
-                                            alt={category.title}
-                                            className="w-full h-full object-cover opacity-75 group-hover:opacity-50 transition-opacity duration-300"
-                                        />
-                                        <div className="absolute inset-0 flex flex-col justify-end p-4 bg-gradient-to-t from-black/80 to-transparent">
-                                            <h3 className="text-lg font-bold text-white mb-1">{category.title}</h3>
-                                            <p className="text-sm text-gray-300">{category.description}</p>
-                                        </div>
-                                    </div>
-                                </FadeInSection>
-                            ))}
-                        </div>
-                    </div>
-                </section>
+                <MoodboardSection />
             </div>
         </>
     );
